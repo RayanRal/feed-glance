@@ -1,0 +1,135 @@
+- name: Home
+  hide-desktop-navigation: true
+  width: wide
+  head-widgets:
+    - type: search
+      search-engine: google
+      autofocus: true
+      bangs:
+        - title: Google
+          shortcut: "!g"
+          url: https://www.google.com/search?q={QUERY}
+        - title: YouTube
+          shortcut: "!yt"
+          url: https://www.youtube.com/results?search_query={QUERY}
+        - title: GitHub
+          shortcut: "!gh"
+          url: https://github.com/search?q={QUERY}
+        - title: Reddit
+          shortcut: "!r"
+          url: https://www.reddit.com/search?q={QUERY}
+
+    - type: group
+      widgets:
+        - type: markets
+          title: Markets
+          markets:
+            - symbol: SPY
+              name: S&P 500
+            - symbol: META
+              name: Meta
+            - symbol: NVDA
+              name: NVIDIA
+            - symbol: GBPUSD=X
+              name: GBP/USD
+        - type: rss
+          title: Financial Times
+          style: horizontal-cards
+          thumbnail-height: 10
+          limit: 12
+          collapse-after: 12
+          cache: 15m
+          feeds:
+            - url: https://www.ft.com/rss/home
+              title: FT
+
+  columns:
+    - size: small
+      widgets:
+        - type: clock
+          hour-format: 24h
+          timezones:
+            - timezone: Europe/London
+              label: London
+            - timezone: Europe/Kyiv
+              label: Kyiv
+            - timezone: America/New_York
+              label: New York
+            - timezone: America/Los_Angeles
+              label: SF
+
+        - type: group
+          widgets:
+            - type: weather
+              location: London, United Kingdom
+              units: metric
+              hour-format: 24h
+
+    - size: full
+      widgets:
+        - type: split-column
+          max-columns: 2
+          widgets:
+            - type: group
+              widgets:
+                - type: hacker-news
+                  limit: 14
+                  collapse-after: 7
+                  sort-by: best
+                  extra-sort-by: engagement
+                  comments-url-template: https://news.ycombinator.com/item?id={POST-ID}
+                - type: rss
+                  title: TLDR
+                  limit: 10
+                  collapse-after: 5
+                  cache: 30m
+                  feeds:
+                    - url: https://tldr.tech/api/rss/tech
+                      title: Tech
+
+                - type: rss
+                  title: Engineering Blogs
+                  limit: 8
+                  collapse-after: 4
+                  cache: 2h
+                  feeds:
+                    - url: https://engineering.fb.com/feed/
+                      title: Meta
+                    - url: https://netflixtechblog.medium.com/feed
+                      title: Netflix
+                    - url: https://blog.cloudflare.com/rss/
+                      title: Cloudflare
+                    - url: https://slack.engineering/feed/
+                      title: Slack
+                    - url: https://aws.amazon.com/blogs/architecture/feed/
+                      title: AWS
+                    - url: https://github.blog/engineering/feed/
+                      title: GitHub
+                    - url: https://dropbox.tech/feed
+                      title: Dropbox
+
+            - type: group
+              widgets:
+                - type: lobsters
+                  limit: 14
+                  collapse-after: 7
+                  sort-by: hot
+                - type: reddit
+                  subreddit: ExperiencedDevs
+                  limit: 8
+                  collapse-after: 5
+                  show-thumbnails: false
+                  request-url-template: ${REDDIT_PROXY_URL}?url={REQUEST-URL}
+
+        - type: videos
+          style: horizontal-cards
+          channels:
+            - UCogDkGI_WtSoVXtbUvRzzjg # Jordan Has No Life
+            - UCPbwhExawYrn9xxI21TFfyw # The Pragmatic Engineer
+            - UC_mYaQAE6-71rjSN6CeCA-g # Neetcode
+            - UCsBjURrPoezykLs9EqgamOA # Fireship
+
+    - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
