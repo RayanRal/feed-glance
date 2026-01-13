@@ -116,10 +116,7 @@
                   sort-by: hot
                 - type: reddit
                   subreddit: ExperiencedDevs
-                  limit: 8
-                  collapse-after: 5
-                  show-thumbnails: false
-                  request-url-template: ${REDDIT_PROXY_URL}?url={REQUEST-URL}
+                  limit: 5
 
         - type: videos
           style: horizontal-cards
