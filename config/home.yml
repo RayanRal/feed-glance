@@ -58,6 +58,9 @@
             - timezone: America/Los_Angeles
               label: SF
 
+        - type: calendar
+          first-day-of-week: monday
+
         - type: group
           widgets:
             - type: weather
@@ -125,8 +128,3 @@
             - UCPbwhExawYrn9xxI21TFfyw # The Pragmatic Engineer
             - UC_mYaQAE6-71rjSN6CeCA-g # Neetcode
             - UCsBjURrPoezykLs9EqgamOA # Fireship
-
-    - size: small
-        widgets:
-          - type: calendar
-            first-day-of-week: monday
