@@ -8,6 +8,7 @@ FROM alpine:3.21
 
 WORKDIR /app
 COPY --from=builder /app/glance .
+COPY config/ /app/config/
 
-EXPOSE 8080/tcp
+EXPOSE 8080
 ENTRYPOINT ["/app/glance", "--config", "/app/config/glance.yml"]
