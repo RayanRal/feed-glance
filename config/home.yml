@@ -32,17 +32,6 @@
               name: NVIDIA
             - symbol: GBPUSD=X
               name: GBP/USD
-        - type: rss
-          title: Financial Times
-          style: horizontal-cards
-          thumbnail-height: 10
-          limit: 12
-          collapse-after: 12
-          cache: 15m
-          feeds:
-            - url: https://www.ft.com/rss/home
-              title: FT
-
   columns:
     - size: small
       widgets:
@@ -117,14 +106,14 @@
                   limit: 14
                   collapse-after: 7
                   sort-by: hot
-                - type: reddit
-                  subreddit: ExperiencedDevs
-                  limit: 5
 
-        - type: videos
+        - type: rss
+          title: Financial Times
           style: horizontal-cards
-          channels:
-            - UCogDkGI_WtSoVXtbUvRzzjg # Jordan Has No Life
-            - UCPbwhExawYrn9xxI21TFfyw # The Pragmatic Engineer
-            - UC_mYaQAE6-71rjSN6CeCA-g # Neetcode
-            - UCsBjURrPoezykLs9EqgamOA # Fireship
+          thumbnail-height: 10
+          limit: 12
+          collapse-after: 12
+          cache: 15m
+          feeds:
+            - url: https://www.ft.com/rss/home
+              title: FT
