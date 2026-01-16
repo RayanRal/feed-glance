@@ -2,25 +2,17 @@
   hide-desktop-navigation: true
   width: wide
   head-widgets:
-    - type: search
-      search-engine: google
-      autofocus: true
-      bangs:
-        - title: Google
-          shortcut: "!g"
-          url: https://www.google.com/search?q={QUERY}
-        - title: YouTube
-          shortcut: "!yt"
-          url: https://www.youtube.com/results?search_query={QUERY}
-        - title: GitHub
-          shortcut: "!gh"
-          url: https://github.com/search?q={QUERY}
-        - title: Reddit
-          shortcut: "!r"
-          url: https://www.reddit.com/search?q={QUERY}
-
     - type: group
       widgets:
+        - type: rss
+          title: Financial Times
+          style: horizontal-cards
+          thumbnail-height: 10
+          limit: 8
+          cache: 15m
+          feeds:
+            - url: https://www.ft.com/rss/home
+              title: FT
         - type: markets
           title: Markets
           markets:
@@ -50,13 +42,6 @@
         - type: calendar
           first-day-of-week: monday
 
-        - type: group
-          widgets:
-            - type: weather
-              location: London, United Kingdom
-              units: metric
-              hour-format: 24h
-
     - size: full
       widgets:
         - type: split-column
@@ -66,23 +51,16 @@
               widgets:
                 - type: hacker-news
                   limit: 14
+                  cache: 1h
                   collapse-after: 7
                   sort-by: best
                   extra-sort-by: engagement
                   comments-url-template: https://news.ycombinator.com/item?id={POST-ID}
-                - type: rss
-                  title: TLDR
-                  limit: 10
-                  collapse-after: 5
-                  cache: 30m
-                  feeds:
-                    - url: https://tldr.tech/api/rss/tech
-                      title: Tech
 
                 - type: rss
                   title: Engineering Blogs
-                  limit: 8
-                  collapse-after: 4
+                  limit: 10
+                  collapse-after: 7
                   cache: 2h
                   feeds:
                     - url: https://engineering.fb.com/feed/
@@ -104,16 +82,13 @@
               widgets:
                 - type: lobsters
                   limit: 14
+                  cache: 1h
                   collapse-after: 7
                   sort-by: hot
-
-        - type: rss
-          title: Financial Times
-          style: horizontal-cards
-          thumbnail-height: 10
-          limit: 12
-          collapse-after: 12
-          cache: 15m
-          feeds:
-            - url: https://www.ft.com/rss/home
-              title: FT
+                  
+                - type: reddit
+                  subreddit: ExperiencedDevs
+                  limit: 10
+                  cache: 1h
+                  collapse-after: 7
+                  show-thumbnails: false
